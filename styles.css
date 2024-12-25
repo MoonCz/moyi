@@ -1,0 +1,358 @@
+:root {
+    --primary-color: #333333;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --border-color: #E0E0E0;
+    --hover-color: #666666;
+    --base-font-size: 16px;
+    --base-font-family: 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    font-family: var(--base-font-family);
+    color: var(--text-color);
+    min-height: 100vh;
+    font-size: var(--base-font-size);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 标题区域样式 */
+.page-header {
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), transparent);
+    border-bottom: 2px solid var(--border-color);
+    position: relative;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin: 0;
+    text-shadow: none;
+    font-family: var(--base-font-family);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #999999;
+    margin-top: 0.5rem;
+    font-family: var(--base-font-family);
+}
+
+.save-btn {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+}
+
+/* 手串展示区域 */
+.bracelet-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8rem 0 3rem;
+    position: relative;
+}
+
+.bracelet-display {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    min-height: 600px;
+    margin: 0 auto;
+    background-color: transparent;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 手串圆圈样式 */
+.bracelet-circle {
+    width: 750px;
+    height: 750px;
+    border: 2px dashed #888;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    background: transparent;
+    transform-origin: center;
+}
+
+/* 示例珠子样式 */
+.example-bead {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #888;
+    background-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+/* 控制区域样式 */
+.bracelet-controls {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    font-size: 1.4rem;
+    z-index: 10;
+}
+
+.size-control, .bead-size-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+input[type="number"] {
+    width: 80px;
+    padding: 0.3rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1.3rem;
+}
+
+input[type="range"] {
+    width: 180px;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* 滑块轨道样式 */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    background: #E0E0E0;
+    border-radius: 3px;
+    border: none;
+}
+
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 6px;
+    background: #E0E0E0;
+    border-radius: 3px;
+    border: none;
+}
+
+/* 滑块手柄样式 */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+    margin-top: -8px;
+    cursor: pointer;
+    position: relative;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid #333333;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #333333;
+    border: none;
+    cursor: pointer;
+}
+
+/* 聚焦时的样式 */
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: #D0D0D0;
+}
+
+input[type="range"]:focus::-moz-range-track {
+    background: #D0D0D0;
+}
+
+.unit {
+    color: #999999;
+    font-size: 1.3rem;
+}
+
+/* 串珠���示区域 */
+.beads-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.color-section {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.color-section h3 {
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0 0 1rem 0;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-family: var(--base-font-family);
+}
+
+.beads-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 1rem;
+}
+
+/* 按钮样式 */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.2rem;
+    font-family: var(--base-font-family);
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 回收站样式 */
+.trash-bin {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.trash-bin img {
+    width: 60%;
+    height: 60%;
+    opacity: 0.6;
+}
+
+.trash-bin.active {
+    background-color: #ffebee;
+}
+
+/* 刻度样式 */
+.ruler-marks {
+    position: absolute;
+    width: calc(100% - 24px);
+    height: 20px;
+    bottom: 0;
+    left: 12px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.mark {
+    position: relative;
+    width: 1px;
+    height: 8px;
+    background: #999999;
+}
+
+.mark.active {
+    background: #333333;
+}
+
+.mark-label {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #999999;
+    white-space: nowrap;
+}
+
+.mark-label.active {
+    color: #333333;
+} 
